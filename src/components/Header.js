@@ -1,7 +1,5 @@
 import React from 'react';
-import { Route, Redirect, Switch, Link } from 'react-router-dom';
-
-import { Cart } from '../views/cart'
+import { Link } from 'react-router-dom';
 
 class Header extends React.Component {
     render() {
@@ -12,7 +10,7 @@ class Header extends React.Component {
                         <div className="container-fluid">
                             <div className="header-bottom-wrapper">
                                 <div className="logo-2 furniture-logo ptb-30">
-                                    <a href="index.html">
+                                    <a href="/">
                                         <img src="assets/img/logo/2.png" alt="" />
                                     </a>
                                 </div>
@@ -21,7 +19,7 @@ class Header extends React.Component {
                                         <ul>
                                             <li><a href="#dummy-link">home</a>
                                                 <ul className="single-dropdown">
-                                                    <li><a href="index.html">Fashion</a></li>
+                                                    <li><a href="/">Fashion</a></li>
                                                     <li><a href="index-fashion-2.html">Fashion style 2</a></li>
                                                     <li><a href="index-fruits.html">fruits</a></li>
                                                     <li><a href="index-book.html">book</a></li>
@@ -102,7 +100,7 @@ class Header extends React.Component {
                                         <span className="shop-count-furniture green">02</span>
                                     </a>
                                     <ul className="cart-dropdown">
-                                        <li className="single-product-cart">
+                                        {/* <li className="single-product-cart">
                                             <div className="cart-img">
                                                 <a href="#dummy-link"><img src="assets/img/cart/1.jpg" alt="" /></a>
                                             </div>
@@ -148,19 +146,14 @@ class Header extends React.Component {
                                             <div className="cart-price">
                                                 <h4>$240.00</h4>
                                             </div>
-                                        </li>
+                                        </li> */}
                                         <li className="cart-btn-wrapper">
-                                            {/* <Switch>
-                                                <Route exact path="/Cart" component={Cart} >Cart button</Route>
-                                            </Switch> */}
                                             <Link
                                                 className="cart-btn btn-hover"
                                                 to="/cart"
                                                 >
                                                 view cart
                                             </Link>
-                                            <Route exact path="/cart" 
-                                                        component={ Cart } />
                                             {/* <a className="cart-btn btn-hover" href="#dummy-link">view cart</a> */}
                                             <a className="cart-btn btn-hover" href="#dummy-link">checkout</a>
                                         </li>
@@ -174,7 +167,7 @@ class Header extends React.Component {
                                             <ul className="menu-overflow">
                                                 <li><a href="#dummy-link">HOME</a>
                                                     <ul>
-                                                        <li><a href="index.html">Fashion</a></li>
+                                                        <li><a href="/">Fashion</a></li>
                                                         <li><a href="index-fashion-2.html">Fashion style 2</a></li>
                                                         <li><a href="index-fruits.html">Fruits</a></li>
                                                         <li><a href="index-book.html">book</a></li>

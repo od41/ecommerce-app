@@ -1,10 +1,15 @@
-import React from "react";
+import React from 'react';
+import productDb from '../../../products.json';
 
 class Product extends React.Component {
     render() {
         return (
+            
 
             <div className="product-wrapper mb-30">
+
+{console.log('product list:', productDb)};
+
                 <div className="product-img">
                     <a href="#dummy-link">
                         <img src="assets/img/product/fashion-colorful/1.jpg" alt="" />

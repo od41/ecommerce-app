@@ -1,9 +1,11 @@
 import React from 'react';
+import {Route} from 'react-router-dom';
 // import logo from './logo.svg';
 import './App.css';
 import Header from './components/Header';
 import Sidebar from './components/Shop/Sidebar';
 import ProductList from './components/Shop/Product/ProductList';
+import {Cart} from './views/cart'
 import productList from './products.json';
 
 // elements
@@ -57,17 +59,23 @@ class App extends React.Component {
         {console.log('product list:', this.state.products)};
         
         <Header />
-        <div className="shop-page-wrapper shop-page-padding ptb-100">
-          <div className="container-fluid">
-            <div className="row">
-              
-              <Sidebar />
-              <ProductList />
+        <Route exact path="/">
+          <div className="shop-page-wrapper shop-page-padding ptb-100">
+            <div className="container-fluid">
+              <div className="row">
+         
+                  <Sidebar />
+                  <ProductList />
 
-              
+              </div>
             </div>
           </div>
-        </div>
+        </Route>
+
+          <Route exact path="/cart">
+            <Cart />
+          </Route>
+
       </div>
     )
   }
