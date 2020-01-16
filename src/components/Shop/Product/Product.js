@@ -1,18 +1,21 @@
 import React from 'react';
-import productDb from '../../../products.json';
+// import 
 
-class Product extends React.Component {
-    render() {
-        return (
-            
+const Product = ( product ) => {
 
+    console.log("Inside Product.JS Component: ", product)
+    console.log("Inside Product.JS Component: ", product.price)
+
+
+    return (
+        
+
+        <div className="col-md-6 col-xl-4">
             <div className="product-wrapper mb-30">
-
-{console.log('product list:', productDb)};
 
                 <div className="product-img">
                     <a href="#dummy-link">
-                        <img src="assets/img/product/fashion-colorful/1.jpg" alt="" />
+                        <img src="{productItem.photo}" alt="" />
                     </a>
                     <span>hot</span>
                     <div className="product-action">
@@ -28,13 +31,13 @@ class Product extends React.Component {
                     </div>
                 </div>
                 <div className="product-content">
-                    <h4><a href="#dummy-link"> Dagger Smart Trousers </a></h4>
-                    <span>$115.00</span>
+                    <h4><a href="#dummy-link"> { product.name} </a></h4>
+                    <span>${ product.price }</span>
                 </div>
             </div>
+        </div>
        
-        )
-    }
+    )
 }
 
 export default Product;

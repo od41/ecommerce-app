@@ -1,16 +1,32 @@
 ﻿{
-    "product-list": "Ezone shopping catalogue 2020",
+    
     "products": [
         {
+            "id": "001",
             "name": "Beige shoes",
             "price": "200",
             "photo": "beige-shoes.jpg",
             "category": "fashion"
         },
         {
+            "id": "002",
             "name": "Pink bags",
             "price": "500",
             "photo": "pink-bags.jpg",
+            "category": "fashion"
+        },
+        {
+            "id": "003",
+            "name": "Yellow scarves",
+            "price": "350",
+            "photo": "yellow-scarves.jpg",
+            "category": "fashion"
+        },
+        {
+            "id": "004",
+            "name": "Black earrings",
+            "price": "800",
+            "photo": "black-earrings.jpg",
             "category": "fashion"
         }
 
