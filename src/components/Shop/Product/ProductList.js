@@ -10,18 +10,16 @@ class ProductList extends React.Component {
     constructor() {
         super();
         this.state = {
-            productList: '',
+            productList: [],
         }
     }
 
     // convert json to object array
     productMap = () => {
         const productArray = new Array(productDb.products).flat();
-        console.log("ProductArray: ", productArray)
 
         let i=0
         const productListTemplate = productArray.map((productItem) => {
-            console.log("Product Item.Name: ", productItem.name)
             
             return(
                 <Product key={i++} product={productItem} />
@@ -35,20 +33,27 @@ class ProductList extends React.Component {
         //         <NewsItem key={"news-" + i++} newsItem={newsItem} />
         //     )
         // })
-        console.log("Product list template: ",productListTemplate)
+        
         return productListTemplate;
     }
 
     componentDidMount () {
-        this.state.productList = this.productMap();
+        this.setState({ 
+            productList: this.productMap()
+        });
+
     }
     // loop through array and map elements to particular props
     // pass each particular prop to a product component
     // render product list
     render() {
+
         return (
+        
 
             <div className="col-lg-9">
+            
+
                         <div className="shop-product-wrapper res-xl">
                             <div className="shop-bar-area">
                                 <Shopbar />
@@ -68,7 +73,7 @@ class ProductList extends React.Component {
                                 <div id="grid-sidebar3" className="tab-pane fade active show">
                                     <div className="row">
                                    
-                                     {this.productMap()}
+                                     { this.state.productList.length ? (this.state.productList ) : ( <h3>Loading...</h3>)}
 
                                     </div>
                                 </div>     

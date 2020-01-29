@@ -6,6 +6,7 @@ import Header from './components/Header';
 import Sidebar from './components/Shop/Sidebar';
 import ProductList from './components/Shop/Product/ProductList';
 import {Cart} from './views/cart'
+import ProductDetail from './views/ProductDetail'
 import productList from './products.json';
 
 // elements
@@ -51,12 +52,12 @@ class App extends React.Component {
 
   render() {
     const {productId} = this.props;
-    console.log(productId)
+    // console.log(productId)
 
     return(
       
       <div>
-        {console.log('product list:', this.state.products)};
+        {/* {console.log('product list:', this.state.products)}; */}
         
         <Header />
         <Route exact path="/">
@@ -72,9 +73,11 @@ class App extends React.Component {
           </div>
         </Route>
 
-          <Route exact path="/cart">
-            <Cart />
-          </Route>
+        <Route exact path="/cart">
+          <Cart />
+        </Route>
+
+        <Route path={"/product-details"} component={ProductDetail} randomProp="test and see" />
 
       </div>
     )

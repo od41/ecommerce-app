@@ -1,10 +1,9 @@
 import React from 'react';
-// import 
+import {Link} from 'react-router-dom';
 
 const Product = ( product ) => {
 
-    console.log("Inside Product.JS Component: ", product)
-    console.log("Inside Product.JS Component: ", product.price)
+    // console.log("Product Props: ", )
 
 
     return (
@@ -14,9 +13,15 @@ const Product = ( product ) => {
             <div className="product-wrapper mb-30">
 
                 <div className="product-img">
-                    <a href="#dummy-link">
-                        <img src="{productItem.photo}" alt="" />
-                    </a>
+                    <Link
+                        to={{
+                            pathname: "/product-details",
+                            search: "?product=" + product.product.id,
+                        }}
+                    >
+                        <img src={product.product.photosmall} alt="" />
+                    </Link>
+
                     <span>hot</span>
                     <div className="product-action">
                         <a className="animate-left" title="Wishlist" href="#dummy-link">
@@ -31,8 +36,8 @@ const Product = ( product ) => {
                     </div>
                 </div>
                 <div className="product-content">
-                    <h4><a href="#dummy-link"> { product.name} </a></h4>
-                    <span>${ product.price }</span>
+                    <h4><a href="#dummy-link"> { product.product.name} </a></h4>
+                    <span>${ product.product.price }</span>
                 </div>
             </div>
         </div>
