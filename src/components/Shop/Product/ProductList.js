@@ -10,7 +10,7 @@ class ProductList extends React.Component {
     constructor() {
         super();
         this.state = {
-            productList: [],
+            productList: []
         }
     }
 
@@ -27,6 +27,8 @@ class ProductList extends React.Component {
             
         })
 
+        // const productListTemplate = []
+
         // const news = sortedNews.map((newsItem) => {
         //     let i = 0
         //     return(
@@ -41,18 +43,20 @@ class ProductList extends React.Component {
         this.setState({ 
             productList: this.productMap()
         });
-
     }
     // loop through array and map elements to particular props
     // pass each particular prop to a product component
     // render product list
     render() {
 
+        const productItems = this.state.productList;
+
+
         return (
         
 
             <div className="col-lg-9">
-            
+
 
                         <div className="shop-product-wrapper res-xl">
                             <div className="shop-bar-area">
@@ -73,14 +77,14 @@ class ProductList extends React.Component {
                                 <div id="grid-sidebar3" className="tab-pane fade active show">
                                     <div className="row">
                                    
-                                     { this.state.productList.length ? (this.state.productList ) : ( <h3>Loading...</h3>)}
+                                     { productItems ? (productItems ) : ( <h3>Loading...</h3>)}
 
                                     </div>
                                 </div>     
                             </div>
 
                             </div>
-                        <div className="pagination-style mt-50 text-center">
+                        {/* <div className="pagination-style mt-50 text-center">
                             <ul>
                                 <li><a href="#dummy-link"><i className="ti-angle-left"></i></a></li>
                                 <li><a href="#dummy-link">1</a></li>
@@ -89,7 +93,7 @@ class ProductList extends React.Component {
                                 <li><a href="#dummy-link">19</a></li>
                                 <li className="active"><a href="#dummy-link"><i className="ti-angle-right"></i></a></li>
                             </ul>
-                        </div>
+                        </div> */}
                     </div>
 // working code below
         )

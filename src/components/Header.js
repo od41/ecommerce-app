@@ -1,8 +1,24 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+
+// redux
+import {connect} from 'react-redux';
+import CartPopup from './Shop/CartPopup';
+
+const mapStateToProps = (state) => {
+    return {
+        productId: state.cartStore,
+    }
+}
 
 class Header extends React.Component {
+
+    constructor() {
+        super();
+    }
+    
+
     render() {
+        
         return (
             <div>
                 <header>
@@ -94,71 +110,7 @@ class Header extends React.Component {
                                         </ul>
                                     </nav>
                                 </div> */}
-                                <div className="header-cart">
-                                    <a className="icon-cart-furniture" href="#dummy-link">
-                                        <i className="ti-shopping-cart"></i>
-                                        <span className="shop-count-furniture green">02</span>
-                                    </a>
-                                    <ul className="cart-dropdown">
-                                        {/* <li className="single-product-cart">
-                                            <div className="cart-img">
-                                                <a href="#dummy-link"><img src="assets/img/cart/1.jpg" alt="" /></a>
-                                            </div>
-                                            <div className="cart-title">
-                                                <h5><a href="#dummy-link"> Bits Headphone</a></h5>
-                                                <h6><a href="#dummy-link">Black</a></h6>
-                                                <span>$80.00 x 1</span>
-                                            </div>
-                                            <div className="cart-delete">
-                                                <a href="#dummy-link"><i className="ti-trash"></i></a>
-                                            </div>
-                                        </li>
-                                        <li className="single-product-cart">
-                                            <div className="cart-img">
-                                                <a href="#dummy-link"><img src="assets/img/cart/2.jpg" alt="" /></a>
-                                            </div>
-                                            <div className="cart-title">
-                                                <h5><a href="#dummy-link"> Bits Headphone</a></h5>
-                                                <h6><a href="#dummy-link">Black</a></h6>
-                                                <span>$80.00 x 1</span>
-                                            </div>
-                                            <div className="cart-delete">
-                                                <a href="#dummy-link"><i className="ti-trash"></i></a>
-                                            </div>
-                                        </li>
-                                        <li className="single-product-cart">
-                                            <div className="cart-img">
-                                                <a href="#dummy-link"><img src="assets/img/cart/3.jpg" alt="" /></a>
-                                            </div>
-                                            <div className="cart-title">
-                                                <h5><a href="#dummy-link"> Bits Headphone</a></h5>
-                                                <h6><a href="#dummy-link">Black</a></h6>
-                                                <span>$80.00 x 1</span>
-                                            </div>
-                                            <div className="cart-delete">
-                                                <a href="#dummy-link"><i className="ti-trash"></i></a>
-                                            </div>
-                                        </li>
-                                        <li className="cart-space">
-                                            <div className="cart-sub">
-                                                <h4>Subtotal</h4>
-                                            </div>
-                                            <div className="cart-price">
-                                                <h4>$240.00</h4>
-                                            </div>
-                                        </li> */}
-                                        <li className="cart-btn-wrapper">
-                                            <Link
-                                                className="cart-btn btn-hover"
-                                                to="/cart"
-                                                >
-                                                view cart
-                                            </Link>
-                                            {/* <a className="cart-btn btn-hover" href="#dummy-link">view cart</a> */}
-                                            <a className="cart-btn btn-hover" href="#dummy-link">checkout</a>
-                                        </li>
-                                    </ul>
-                                </div>
+                                <CartPopup />
                             </div>
                             {/* <div className="row">
                                 <div className="mobile-menu-area d-md-block col-md-12 col-lg-12 col-12 d-lg-none d-xl-none">
@@ -261,4 +213,4 @@ class Header extends React.Component {
     }
 }
 
-export default Header;
+export default connect(mapStateToProps)(Header);

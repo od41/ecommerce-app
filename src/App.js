@@ -9,6 +9,9 @@ import {Cart} from './views/cart'
 import ProductDetail from './views/ProductDetail'
 import productList from './products.json';
 
+// product dev-data
+// import productDb from '../../../products.json';
+
 // elements
 import {Tag} from './components/utils/misc'
 
@@ -29,7 +32,7 @@ import {addTocCart} from './actions';
 
 
 const mapStateToProps = (state) => ({
-  // productId: state.addTocCart.productId,
+  cart: state.cartStore
 })
 
 
@@ -38,10 +41,23 @@ class App extends React.Component {
   constructor() {
     super()
     this.state = {
-      products: productList
+      products: [],
     }
     
   }
+
+  componentDidMount () {
+    fetch("products.json")
+            .then(res => res.json())
+            .then(data => this.setState({ 
+                            products: data
+                          })
+                        )
+            .catch(err => err.message)
+  }
+    
+
+
 
 // load the Json file as an object with product data
 // define the state property for the class
@@ -51,13 +67,12 @@ class App extends React.Component {
 // 
 
   render() {
-    const {productId} = this.props;
-    // console.log(productId)
+    // const {productId} = this.props;
+    // console.log('inside app: products',this.state.products)
 
     return(
       
       <div>
-        {/* {console.log('product list:', this.state.products)}; */}
         
         <Header />
         <Route exact path="/">
@@ -66,7 +81,7 @@ class App extends React.Component {
               <div className="row">
          
                   <Sidebar />
-                  <ProductList />
+                  <ProductList products={this.state.products} />
 
               </div>
             </div>

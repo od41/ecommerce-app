@@ -1,0 +1,55 @@
+﻿{
+    
+    "products": [
+        {
+            "id": "001",
+            "name": "Clutch Bag",
+            "price": "200",
+            "photosmall": "/assets/img/product/bags/maroon-clutch-purse-small.jpg",
+            "photolarge": "/assets/img/product/bags/maroon-clutch-purse-large.jpg",
+            "category": "fashion",
+            "onsale": "false"
+        },
+        {
+            "id": "002",
+            "name": "Pink bags",
+            "price": "500",
+            "photosmall": "/assets/img/product/bags/pink-purse-clutch-small.jpg",
+            "photolarge": "/assets/img/product/bags/pink-purse-clutch-large.jpg",
+            "category": "fashion",
+            "onsale": "false"
+        },
+        {
+            "id": "003",
+            "name": "Skull bracelet",
+            "price": "350",
+            "photosmall": "/assets/img/product/bags/skull-bracelet-small.jpg",
+            "photolarge": "/assets/img/product/bags/skull-bracelet-large.jpg",
+            "category": "fashion",
+            "onsale": "true"
+        },
+        {
+            "id": "004",
+            "name": "Sunglasses",
+            "price": "800",
+            "photosmall": "/assets/img/product/bags/sunglasses-small.jpg",
+            "photolarge": "/assets/img/product/bags/sunglasses-large.jpg",
+            "category": "fashion"
+            ,
+            "onsale": "false"
+        },
+        {
+            "id": "005",
+            "name": "White sling purse",
+            "price": "900",
+            "photosmall": "/assets/img/product/bags/white-bag-small.jpg",
+            "photolarge": "/assets/img/product/bags/white-bag-large.jpg",
+            "category": "fashion"
+            ,
+            "onsale": "true"
+        }
+
+    ]
+
+
+}

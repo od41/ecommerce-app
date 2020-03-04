@@ -11,27 +11,44 @@ import {combineReducers} from 'redux';
 
 // set initial state
 
-const initialState = {
-    isInCart: false,
-    quantity: 0,
-    productId: 0,
+// const initialState = {
+//     isInCart: false,
+//     quantity: 0,
+//     productId: 0,
+// }
+
+
+// const cartReducer = (state=initialState, action={}) => {
+    
+//     switch(action.type){
+//         case ADD_TO_CART_CLICKED:
+//             return Object.assign({}, state, {isInCart: true, quantity: 1, productId: action.payload}); 
+
+//         default:
+//             return state;
+
+//     }
+// }
+
+// stores cart id implementation
+const emptyCart = {
+    products: []
 }
 
-
-const cartReducer = (state=initialState, action={}) => {
-    
-    switch(action.type){
+const cartStore = (state=emptyCart, action={}) => {
+    // when addToCart is detected it creates a new object with the product id and quantity set to 1
+    switch(action.type) {
         case ADD_TO_CART:
-            return Object.assign({}, state, {isInCart: true, quantity: 1, productId: action.payload}); 
+            return {...state,
+                    products: [...state.products, action.payload] 
+                    }
 
         default:
             return state;
-
     }
 }
-
 // export reducer
 // export cartReducer;
 export const rootReducer = combineReducers({
-    cartReducer, 
+    cartStore
 })

@@ -1,6 +1,8 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
+import AddToCart from './AddToCart';
+
 const Product = ( product ) => {
 
     // console.log("Product Props: ", )
@@ -27,9 +29,7 @@ const Product = ( product ) => {
                         <a className="animate-left" title="Wishlist" href="#dummy-link">
                             <i className="pe-7s-like"></i>
                         </a>
-                        <a className="animate-top" title="Add To Cart" href="#dummy-link">
-                            <i className="pe-7s-cart"></i>
-                        </a>
+                        <AddToCart id={product.product.id} />
                         <a className="animate-right" title="Quick View" data-toggle="modal" data-target="#exampleModal" href="#dummy-link">
                             <i className="pe-7s-look"></i>
                         </a>
