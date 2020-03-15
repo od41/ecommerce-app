@@ -5,7 +5,7 @@
 // make sure reducer function returns a copy of the state object
 // repeat as necessary for each reducer thing you need to track
 
-import {ADD_TO_CART} from './constants';
+import {ADD_TO_CART, REMOVE_FROM_CART} from './constants';
 
 import {combineReducers} from 'redux';
 
@@ -42,6 +42,11 @@ const cartStore = (state=emptyCart, action={}) => {
             return {...state,
                     products: [...state.products, action.payload] 
                     }
+
+        case REMOVE_FROM_CART:
+            return {
+                    products: [...state.products.filter(product => Object.values(product).toString() !== Object.values(action.payload).toString() )]
+                };
 
         default:
             return state;

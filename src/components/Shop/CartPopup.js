@@ -6,6 +6,8 @@ import productDb from '../../products.json';
 // redux
 import {connect} from 'react-redux';
 
+import RemoveFromCart from './Product/RemoveFromCart'
+
 const mapStateToProps = (state) => {
     return {
         productId: state.cartStore,
@@ -63,16 +65,14 @@ class CartPopup extends React.Component {
                     return (
                         <li className="single-product-cart">
                             <div className="cart-img">
-                                <a href="#dummy-link"><img src="assets/img/cart/1.jpg" alt="" /></a>
+                                <a href="#dummy-link"><img src={currentProduct.photosmall} width="82" alt="" /></a>
                             </div> 
                             <div className="cart-title">
                                 <h5><a href="#dummy-link"> { currentProduct.name}</a></h5>
                                 <h6><a href="#dummy-link">Black</a></h6>
                                 <span>${ currentProduct.price }</span>
                             </div>
-                            <div className="cart-delete">
-                                <a href="#dummy-link"><i className="ti-trash"></i></a>
-                            </div>
+                            <RemoveFromCart id={currentProduct.id} />
                         </li>
                     )
                 } else {
@@ -114,16 +114,22 @@ class CartPopup extends React.Component {
                                                 <hr/>
                                             </div>
                                         ) }
+                                        {
+                                            products.length ? (
+                                                <li className="cart-space">
+                                                    <div className="cart-sub">
+                                                        <h4>Subtotal</h4>
+                                                    </div>
+                                                    <div className="cart-price">
+                                                    <h4>${prices}</h4>
+                                                        
+                                                    </div>
+                                                </li>
+                                            ) : (
+                                                ''
+                                            )
+                                        }
                                         
-                                        <li className="cart-space">
-                                            <div className="cart-sub">
-                                                <h4>Subtotal</h4>
-                                            </div>
-                                            <div className="cart-price">
-                                            <h4>${prices}</h4>
-                                                
-                                            </div>
-                                        </li>
                                         <li className="cart-btn-wrapper">
                                             <Link
                                                 className="cart-btn btn-hover"
@@ -132,7 +138,13 @@ class CartPopup extends React.Component {
                                                 view cart
                                             </Link>
                                             {/* <a className="cart-btn btn-hover" href="#dummy-link">view cart</a> */}
-                                            <a className="cart-btn btn-hover" href="#dummy-link">checkout</a>
+                                            <Link
+                                                className="cart-btn btn-hover"
+                                                to="/checkout"
+                                                >
+                                                checkout
+                                            </Link>
+                                            {/* <a className="cart-btn btn-hover" href="#dummy-link">checkout</a> */}
                                         </li>
                                     </ul>
                                 </div>

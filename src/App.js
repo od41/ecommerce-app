@@ -5,7 +5,8 @@ import './App.css';
 import Header from './components/Header';
 import Sidebar from './components/Shop/Sidebar';
 import ProductList from './components/Shop/Product/ProductList';
-import {Cart} from './views/cart'
+import Cart from './views/Cart'
+import Checkout from './views/Checkout'
 import ProductDetail from './views/ProductDetail'
 import productList from './products.json';
 
@@ -53,7 +54,18 @@ class App extends React.Component {
                             products: data
                           })
                         )
-            .catch(err => err.message)
+            .catch(err => err.message);
+      
+    console.log('component did mount');
+
+  
+  }
+
+  componentWillMount = () => {
+    console.log('component will mount')
+    if(localStorage.getItem('cart')) {
+      localStorage.setItem('cart', this.props.cart)
+    }
   }
     
 
@@ -90,6 +102,9 @@ class App extends React.Component {
 
         <Route exact path="/cart">
           <Cart />
+        </Route>
+        <Route exact path="/checkout">
+          <Checkout />
         </Route>
 
         <Route path={"/product-details"} component={ProductDetail} randomProp="test and see" />

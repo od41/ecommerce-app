@@ -1,7 +1,7 @@
 import React from 'react';
 // import background from '../../public/assets/img/bg/breadcrumb.jpg';
 
-export const Cart = () => {
+const Cart = () => {
     return(
         <div>
             
@@ -98,3 +98,5 @@ export const Cart = () => {
         </div>
     )
 }
+
+export default Cart;
