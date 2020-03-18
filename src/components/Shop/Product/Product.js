@@ -29,7 +29,7 @@ const Product = ( product ) => {
                         <a className="animate-left" title="Wishlist" href="#dummy-link">
                             <i className="pe-7s-like"></i>
                         </a>
-                        <AddToCart id={product.product.id} />
+                        <AddToCart product={product.product} />
                         <a className="animate-right" title="Quick View" data-toggle="modal" data-target="#exampleModal" href="#dummy-link">
                             <i className="pe-7s-look"></i>
                         </a>

@@ -8,7 +8,7 @@ import { removeFromCart} from '../../../actions';
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        removeFromCart: (productId) => dispatch(removeFromCart({id: productId}))
+        removeFromCart: (product) => dispatch(removeFromCart(product))
     }
 }
 
@@ -33,7 +33,7 @@ const AddToCart = (props) => {
 
     return(
 
-        <button className="cart-delete" title="Remove From Cart" onClick={()=> props.removeFromCart(props.id)}>
+        <button className="cart-delete" title="Remove From Cart" onClick={()=> props.removeFromCart(props.product)}>
             <i className="ti-trash"></i>
         </button>
     )

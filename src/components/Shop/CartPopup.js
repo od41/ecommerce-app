@@ -72,7 +72,8 @@ class CartPopup extends React.Component {
                                 <h6><a href="#dummy-link">Black</a></h6>
                                 <span>${ currentProduct.price }</span>
                             </div>
-                            <RemoveFromCart id={currentProduct.id} />
+                            <RemoveFromCart product={currentProduct} /> 
+                            {/* // pass the current product object to remove cart componentS */}
                         </li>
                     )
                 } else {

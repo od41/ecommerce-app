@@ -9,6 +9,7 @@ import Cart from './views/Cart'
 import Checkout from './views/Checkout'
 import ProductDetail from './views/ProductDetail'
 import productList from './products.json';
+import Footer from './components/Shop/Footer'
 
 // product dev-data
 // import productDb from '../../../products.json';
@@ -98,6 +99,7 @@ class App extends React.Component {
               </div>
             </div>
           </div>
+          
         </Route>
 
         <Route exact path="/cart">
@@ -109,6 +111,8 @@ class App extends React.Component {
 
         <Route path={"/product-details"} component={ProductDetail} randomProp="test and see" />
 
+
+        <Footer />
       </div>
     )
   }

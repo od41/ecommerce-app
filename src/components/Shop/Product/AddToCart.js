@@ -6,9 +6,15 @@ import {connect} from 'react-redux';
 // actions
 import {addToCart} from '../../../actions';
 
+const mapStateToProps = (state) => {
+    return {
+        cart: state.cartStore,
+    }
+}
+
 const mapDispatchToProps = (dispatch) => {
     return {
-        addToCart: (productId) => dispatch(addToCart({id: productId}))
+        addToCart: (cart, product) => dispatch(addToCart(cart, product))
     }
 }
 
@@ -33,11 +39,11 @@ const AddToCart = (props) => {
 
     return(
         
-        <button className="animate-top" title="Add To Cart" onClick={()=> props.addToCart(props.id)}>
+        <button className="animate-top" title="Add To Cart" onClick={()=> props.addToCart(props.cart.products, props.product)}>
             <i className="pe-7s-cart"></i>
         </button>
     )
 }
 
 
-export default connect(null, mapDispatchToProps)(AddToCart);
+export default connect(mapStateToProps, mapDispatchToProps)(AddToCart);
